@@ -45,7 +45,7 @@ public class sideScrollerController : MonoBehaviour {
 
         rb2D.MovePosition(Vector3.Lerp(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x, transform.position.y) + new Vector2(stepVec.x, downForce) * moveSpeed, moveSmooth));
 
-        if(Input.GetButtonDown("Jump") && canJump && !isJumping)
+        if(Input.GetButton("Jump") && canJump && !isJumping)
         {
             isJumping = true;
         }
