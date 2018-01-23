@@ -13,6 +13,10 @@ public class sideScrollerController : MonoBehaviour {
     public float distFromGround = 0;
     public float timeOffGroundVal = 0;
     public float maxSpeed = 5f;
+    public float jumpForce = 500f;
+    public bool canJump = false;
+    public bool isJumping = false;
+    public float jumpSmooth = 0.3f;
 
 	void Start ()
     {
@@ -39,7 +43,24 @@ public class sideScrollerController : MonoBehaviour {
 
         float angle = (Mathf.Atan2(stepVec.y, stepVec.x) * 180 / Mathf.PI) + 90;
 
-        rb2D.MovePosition(Vector3.Lerp(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x, transform.position.y) + new Vector2(stepVec.x, -downForce) * moveSpeed, moveSmooth));
+        rb2D.MovePosition(Vector3.Lerp(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x, transform.position.y) + new Vector2(stepVec.x, downForce) * moveSpeed, moveSmooth));
+
+        if(Input.GetButtonDown("Jump") && canJump && !isJumping)
+        {
+            isJumping = true;
+        }
+
+        if (isJumping)
+        {
+            if (downForce < 1f)
+            {
+                downForce = Mathf.Lerp(downForce, 1.01f, jumpSmooth);
+            }
+            else
+            {
+                isJumping = false;
+            }
+        }
     }
 
     void CheckGround()
@@ -51,14 +72,19 @@ public class sideScrollerController : MonoBehaviour {
             distFromGround = hit.distance;
         }
 
-        if(distFromGround >= 0.1f)
+        if(distFromGround >= 0.01f)
         {
             timeOffGround();
+            canJump = false;
         }
         else
         {
-            downForce = 0;
+            canJump = true;
             timeOffGroundVal = 0;
+            if(!isJumping)
+            {
+                downForce = 0;
+            }
 
         }
     }
@@ -73,8 +99,11 @@ public class sideScrollerController : MonoBehaviour {
 
     void timeOffGround()
     {
-        timeOffGroundVal += 0.1f;
-        downForce = timeOffGroundVal;
+        if (!isJumping)
+        {
+            timeOffGroundVal += 0.1f;
+            downForce = -timeOffGroundVal;
+        }
     }
 
 }
