@@ -15,9 +15,9 @@ public class sideScrollerController : MonoBehaviour {
         rb2D = GetComponent<Rigidbody2D>();
 	}
 	
-	void Update ()
+	void FixedUpdate ()
     {
-		
+        Movement();
 	}
     
     void Rotation()
@@ -33,6 +33,6 @@ public class sideScrollerController : MonoBehaviour {
 
         float angle = (Mathf.Atan2(stepVec.y, stepVec.x) * 180 / Mathf.PI) + 90;
 
-        rb2D.MovePosition(Vector3.Lerp(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x, transform.position.y) + new Vector2(stepVec.x, stepVec.y) * moveSpeed, moveSmooth));
+        rb2D.MovePosition(Vector3.Lerp(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x, transform.position.y) + new Vector2(stepVec.x, 0) * moveSpeed, moveSmooth));
     }
 }
