@@ -308,6 +308,7 @@
   <ItemGroup>
     <Compile Include="Assets\Code\healthManager.cs" />
     <Compile Include="Assets\Code\shipController.cs" />
+    <Compile Include="Assets\Code\sideScrollerController.cs" />
     <Compile Include="Assets\Code\spawnAsteroids.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
