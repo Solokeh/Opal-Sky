@@ -85,7 +85,7 @@ public class sideScrollerController : MonoBehaviour {
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, -1.1f, 0), -Vector2.up);
 
-        if(hit.transform.tag == "Ground")
+        if((hit) && (hit.transform.tag == "Ground"))
         {
             distFromGround = hit.distance;
         }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class ShipGenerator : MonoBehaviour {
-    public enum Tile { Free, Platform };
+    public enum Tile { Free, Platform, Entry };
 
-    public static void Generate(GameObject platformPrefab, int sizeX, int sizeY, float incrementX = 0.1f, float incrementY = 0.1f, float threshold = 0.5f) {
+    public static void Generate(Transform player, GameObject platformPrefab, int sizeX, int sizeY, float incrementX = 0.1f, float incrementY = 0.1f, float threshold = 0.5f) {
         GameObject shipHolder = new GameObject("Ship");
         Tile[,] ship = new Tile[sizeX, sizeY];
         float x = Random.Range(-99999f, 99999f), y = Random.Range(-99999f, 99999f);
@@ -20,9 +20,14 @@ public abstract class ShipGenerator : MonoBehaviour {
                 }
             }
         }
+        bool entryPlaced = false;
         for (int iX = 0; iX < sizeX; iX++) {
             for (int iY = (sizeY - 1); iY >= 0; iY--) {
                 if (ship[iX, iY] == Tile.Platform) {
+                    if ((!entryPlaced) && ((iY + 1) < sizeY)) {
+                        ship[iX, iY + 1] = Tile.Entry;
+                        entryPlaced = true;
+                    }
                     for (int iY2 = (iY - 1); iY2 >= 0; iY2--) {
                         if (ship[iX, iY2] == Tile.Free) {
                             break;
@@ -42,6 +47,8 @@ public abstract class ShipGenerator : MonoBehaviour {
                 Tile tile = ship[iX, iY];
                 if (tile == Tile.Platform) {
                     CreatePlatform(platformPrefab, pos, shipHolder.transform);
+                } else if (tile == Tile.Entry) {
+                    PlacePlayer(player, pos);
                 }
             }
         }
@@ -49,5 +56,10 @@ public abstract class ShipGenerator : MonoBehaviour {
 
     private static void CreatePlatform(GameObject platformPrefab, Vector2 pos, Transform parent) {
         Instantiate(platformPrefab, pos, Quaternion.identity, parent);
+    }
+
+    private static void PlacePlayer(Transform player, Vector2 pos) {
+        pos.y += player.GetComponent<CapsuleCollider2D>().size.y;
+        player.position = pos;
     }
 }
