@@ -20,9 +20,24 @@ public abstract class ShipGenerator : MonoBehaviour {
                 }
             }
         }
-        float platformSizeX = platformPrefab.GetComponent<BoxCollider2D>().size.x;
+        for (int iX = 0; iX < sizeX; iX++) {
+            for (int iY = (sizeY - 1); iY >= 0; iY--) {
+                if (ship[iX, iY] == Tile.Platform) {
+                    for (int iY2 = (iY - 1); iY2 >= 0; iY2--) {
+                        if (ship[iX, iY2] == Tile.Free) {
+                            break;
+                        } else {
+                            ship[iX, iY2] = Tile.Free;
+                        }
+                    }
+                }
+            }
+        }
+        BoxCollider2D col = platformPrefab.GetComponent<BoxCollider2D>();
+        float platformSizeX = col.size.x;
+        float platformSizeY = col.size.y;
         Vector2 pos = Vector2.zero;
-        for (int iY = 0; iY < sizeY; iY++, pos.y++, pos.x = 0f) {
+        for (int iY = 0; iY < sizeY; iY++, pos.y += platformSizeY, pos.x = 0f) {
             for (int iX = 0; iX < sizeX; iX++, pos.x += platformSizeX) {
                 Tile tile = ship[iX, iY];
                 if (tile == Tile.Platform) {
