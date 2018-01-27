@@ -6,6 +6,9 @@ public class sideScrollerController : MonoBehaviour {
 
     public Vector2 stepVec;
     private Rigidbody2D rb2D;
+    public Transform gun;
+
+    #region Numbers
 
     public float skidSmooth = 0.1f;
     public float moveSpeed = 1f;
@@ -21,12 +24,20 @@ public class sideScrollerController : MonoBehaviour {
     public float maxTimeOffGround = 2f;
     public float camSmooth = 0.3f;
     public float timeOffGroundAdd = 0.1f;
+    public float gunSmooth = 0.4f;
+
+    #endregion
+
+    #region Bools
 
     public bool canJump = false;
     public bool isJumping = false;
 
+    #endregion
+
     public Camera cam;
     public AudioSource audio;
+    public ProjectileWeapon gunObject;
 
     void Start ()
     {
@@ -40,6 +51,8 @@ public class sideScrollerController : MonoBehaviour {
         CheckGround();
         LimitVelocity();
         ControlCam();
+        ControlWeaponRotationAndPosition();
+        ControlWeapon();
 	}
     
     void Rotation()
@@ -117,6 +130,26 @@ public class sideScrollerController : MonoBehaviour {
         {
             rb2D.velocity = rb2D.velocity.normalized * maxSpeed;
         }
+    }
+
+    void ControlWeapon()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            gunObject.HandleInput();
+        }
+    }
+
+    void ControlWeaponRotationAndPosition()
+    {
+        gun.position = transform.position + new Vector3(0, 1, 0);
+
+        Vector3 mouse = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10));
+
+        float AngleRad = Mathf.Atan2(mouse.y - gun.position.y, mouse.x - gun.position.x);
+        float angle = (180 / Mathf.PI) * AngleRad;
+
+        gun.rotation = Quaternion.Lerp(gun.rotation, Quaternion.AngleAxis(angle, Vector3.forward), gunSmooth);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
