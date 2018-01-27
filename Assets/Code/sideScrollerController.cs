@@ -142,7 +142,7 @@ public class sideScrollerController : MonoBehaviour {
 
     void ControlWeaponRotationAndPosition()
     {
-        gun.position = transform.position + new Vector3(0, 1, 0);
+        //gun.position = transform.position + new Vector3(0, 1, 0);
 
         Vector3 mouse = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10));
 
