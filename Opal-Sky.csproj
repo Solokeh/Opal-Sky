@@ -313,7 +313,8 @@
     <Compile Include="Assets\Code\platformScript.cs" />
     <Compile Include="Assets\Code\ProjectileWeapon.cs" />
     <Compile Include="Assets\Code\shipController.cs" />
-    <Compile Include="Assets\Code\shipGenerator.cs" />
+    <Compile Include="Assets\Code\ShipGenerator.cs" />
+    <Compile Include="Assets\Code\ShipSetter.cs" />
     <Compile Include="Assets\Code\sideScrollerController.cs" />
     <Compile Include="Assets\Code\spawnAsteroids.cs" />
     <Compile Include="Assets\PlayerController.cs" />
