@@ -25,7 +25,7 @@ public class healthManager : MonoBehaviour {
         }
     }
 
-    void CalcDamage(float damage)
+   public void CalcDamage(float damage)
     {
         healthValue -= damage;
     }
