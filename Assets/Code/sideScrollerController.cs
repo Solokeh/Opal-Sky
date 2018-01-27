@@ -134,7 +134,7 @@ public class sideScrollerController : MonoBehaviour {
 
     void ControlWeapon()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
             gunObject.HandleInput();
         }
