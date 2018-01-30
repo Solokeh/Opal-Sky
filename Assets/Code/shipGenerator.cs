@@ -54,7 +54,7 @@ public abstract class ShipGenerator : MonoBehaviour {
         }
         BoxCollider2D col = platformPrefab.GetComponent<BoxCollider2D>();
         float platformSizeX = col.size.x;
-        float platformSizeY = col.size.y;
+        //float platformSizeY = col.size.y;
         Vector2 pos = Vector2.zero;
         for (int iY = 0; iY < sizeY; iY++, pos.y++, pos.x = 0f) {
             for (int iX = 0; iX < sizeX; iX++, pos.x += platformSizeX) {

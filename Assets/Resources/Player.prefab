@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212989440309587740}
   - component: {fileID: 70170404108019504}
   - component: {fileID: 114585350382243908}
+  - component: {fileID: 114529772269427120}
   - component: {fileID: 50313316114187724}
   - component: {fileID: 82193039634858974}
   - component: {fileID: 210986947119612184}
@@ -272,6 +273,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114529772269427120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1296105640244586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 822badc7ad4fa5145b5cd5099aadd5b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 114585350382243908}
+  jetForce: 100
+  fuel: 100
+  maxFuel: 100
+  isFlying: 0
 --- !u!114 &114585350382243908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,8 +300,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1165c890151ea41b0de056b7f2f846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fuelManager: {fileID: 114529772269427120}
   stepVec: {x: 0, y: 0}
   gun: {fileID: 4166203911432102}
+  positionToMoveTo: {x: 0, y: 0}
   skidSmooth: 0.9
   moveSpeed: 2.5
   moveSmooth: 0.1
