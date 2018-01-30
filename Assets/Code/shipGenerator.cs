@@ -55,11 +55,12 @@ public abstract class ShipGenerator : MonoBehaviour {
     }
 
     private static void CreatePlatform(GameObject platformPrefab, Vector2 pos, Transform parent) {
+        pos.y /= 2f;
         Instantiate(platformPrefab, pos, Quaternion.identity, parent);
     }
 
     private static void PlacePlayer(Transform player, Vector2 pos) {
-        pos.y += player.GetComponent<CapsuleCollider2D>().size.y;
+        pos.y += (player.GetComponent<CapsuleCollider2D>().size.y);
         player.position = pos;
     }
 }
