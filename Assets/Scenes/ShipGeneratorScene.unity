@@ -228,7 +228,7 @@ MonoBehaviour:
     type: 2}
   sizeX: 100
   sizeY: 100
-  incrementX: 0.01
+  incrementX: 0.05
   incrementY: 0.1
   threshold: 0.5
 --- !u!4 &816867167
