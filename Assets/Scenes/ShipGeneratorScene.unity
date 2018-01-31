@@ -320,6 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 816867167}
   - component: {fileID: 816867166}
+  - component: {fileID: 816867168}
   m_Layer: 0
   m_Name: Setter
   m_TagString: Untagged
@@ -361,6 +362,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &816867168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 816867165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e691c816ef2ca1e41b59df4ceafb4119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fuelBar: {fileID: 1564284626}
 --- !u!4 &913677711 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4269751151648310, guid: b00fff97573fa634f80b48d5d1db27a1,
@@ -377,7 +390,7 @@ GameObject:
   - component: {fileID: 1564284627}
   - component: {fileID: 1564284626}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Fuel Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,7 +552,7 @@ GameObject:
   - component: {fileID: 2036413773}
   - component: {fileID: 2036413772}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Fuel BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

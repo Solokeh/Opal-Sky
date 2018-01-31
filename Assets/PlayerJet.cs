@@ -45,6 +45,7 @@ public class PlayerJet : MonoBehaviour {
             } else if (fuel > maxFuel) {
                 fuel = maxFuel;
             }
+            UI.UpdateFuelBar(fuel, maxFuel);
         }
     }
 
