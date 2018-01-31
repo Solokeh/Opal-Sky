@@ -28,7 +28,7 @@ public class PlayerJet : MonoBehaviour {
     }
 
     private void JetInput() {
-        if ((Input.GetButton("Jump")) && (playerJumpScript.InAirButtonReleased)) {
+        if ((Input.GetButton("Jump")) && (playerJumpScript.InAirButtonReleased) && (Fuel > 0)) {
             Fuel--;
             jetIdleTimer = fuelRefillDelay;
             rb.AddForce(Vector2.up * jetForce);
