@@ -9,7 +9,7 @@ public class PlayerJet : MonoBehaviour {
     [Tooltip("The amount of time (in seconds) the Player has to stop using fuel for it to start refilling.")]
     public float fuelRefillDelay = 2f;
     public PlayerJump playerJumpScript;
-    public float jetForce = 2f;
+    public float jetForce = 25f;
 
     private Rigidbody2D rb;
     private float jetIdleTimer = 0f;

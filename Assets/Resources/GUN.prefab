@@ -139,6 +139,7 @@ MonoBehaviour:
   fireRate: 0.2
   magnumWeaponFire: {fileID: 8300000, guid: bf6e4b76776efd64596e3df4b26b2a2b, type: 3}
   timeUntilFire: 0
+  bulletStartOffset: 2
 --- !u!212 &212081922167017376
 SpriteRenderer:
   m_ObjectHideFlags: 1

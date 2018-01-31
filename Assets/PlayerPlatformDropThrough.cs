@@ -19,7 +19,11 @@ public class PlayerPlatformDropThrough : MonoBehaviour {
     private void Update() {
         if (ignoreTimer > 0f) {
             ignoreTimer -= Time.deltaTime;
-        } else if (Input.GetAxisRaw("Vertical") < 0f) {
+        } else if (platformColToIgnore) {
+            Physics2D.IgnoreCollision(col, platformColToIgnore, false);
+            platformColToIgnore = null;
+        }
+        if (Input.GetAxisRaw("Vertical") < 0f) {
             CheckForPlatform();
         }
     }

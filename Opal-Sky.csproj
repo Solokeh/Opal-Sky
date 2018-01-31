@@ -303,24 +303,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Code\AI_Alien.cs" />
     <Compile Include="Assets\Code\BulletScript.cs" />
     <Compile Include="Assets\Code\CameraControls.cs" />
     <Compile Include="Assets\Code\coinSpawner.cs" />
     <Compile Include="Assets\Code\DestroyAfter.cs" />
+    <Compile Include="Assets\Code\EnemyStats.cs" />
+    <Compile Include="Assets\Code\GroundCheck.cs" />
     <Compile Include="Assets\Code\healthManager.cs" />
+    <Compile Include="Assets\Code\HealthUI.cs" />
     <Compile Include="Assets\Code\platformScript.cs" />
     <Compile Include="Assets\Code\PlayerShoot.cs" />
     <Compile Include="Assets\Code\ProjectileWeapon.cs" />
     <Compile Include="Assets\Code\shipController.cs" />
-    <Compile Include="Assets\Code\shipGenerator.cs" />
+    <Compile Include="Assets\Code\ShipGenerator.cs" />
     <Compile Include="Assets\Code\ShipSetter.cs" />
     <Compile Include="Assets\Code\sideScrollerController.cs" />
     <Compile Include="Assets\Code\spawnAsteroids.cs" />
+    <Compile Include="Assets\Code\Stats.cs" />
+    <Compile Include="Assets\Code\TriggerShipGenerate.cs" />
     <Compile Include="Assets\PlayerAim.cs" />
     <Compile Include="Assets\PlayerJet.cs" />
     <Compile Include="Assets\PlayerJump.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />
     <Compile Include="Assets\PlayerPlatformDropThrough.cs" />
+    <Compile Include="Assets\PlayerStats.cs" />
     <Compile Include="Assets\UI.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

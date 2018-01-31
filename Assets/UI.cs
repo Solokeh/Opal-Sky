@@ -3,11 +3,20 @@ using UnityEngine.UI;
 
 // Only ONE of this object should exist!
 public class UI : MonoBehaviour {
-    public Image fuelBar;
+    public Image healthBar, fuelBar;
     private static UI ui;
 
     private void Awake() {
         ui = this;
+    }
+
+    public void HealthBar(int health, int maxHealth) {
+        float fHealth = health, fMaxHealth = maxHealth;
+        healthBar.fillAmount = fHealth / fMaxHealth;
+    }
+
+    public static void UpdateHealthBar(int health, int maxHealth) {
+        ui.HealthBar(health, maxHealth);
     }
 
     public void FuelBar(int fuel, int maxFuel) {

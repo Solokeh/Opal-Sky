@@ -1,12 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class ShipGenerator : MonoBehaviour {
-    public enum Tile { Free, Platform, Block, Entry };
+    public enum Tile { Free, Platform, Block, Enemy, Entry, Exit };
 
-    public static void Generate(Transform player, GameObject platformPrefab, GameObject blockPrefab, int sizeX, int sizeY, float incrementX = 0.1f, float incrementY = 0.1f, float threshold = 0.5f) {
-        GameObject shipHolder = new GameObject("Ship");
+    private static GameObject shipHolder;
+
+    public static void Generate(Transform player, GameObject alienPrefab, GameObject holderPrefab, GameObject platformPrefab, GameObject blockPrefab, GameObject exitPrefab, int sizeX, int sizeY, float incrementX = 0.1f, float incrementY = 0.1f, float threshold = 0.5f) {
+        if (shipHolder) {
+            Destroy(shipHolder);
+        }
+        shipHolder = Instantiate(holderPrefab);
         Tile[,] ship = new Tile[sizeX, sizeY];
         float x = Random.Range(-99999f, 99999f), y = Random.Range(-99999f, 99999f);
         float offsetX = 0f, offsetY = 0f;
@@ -27,9 +30,16 @@ public abstract class ShipGenerator : MonoBehaviour {
                     if (iY == 0) {
                         ship[iX, iY] = Tile.Block;
                     } else {
-                        if ((!entryPlaced) && ((iY + 1) < sizeY)) {
-                            ship[iX, iY + 1] = Tile.Entry;
-                            entryPlaced = true;
+                        if ((iY + 1) < sizeY) {
+                            if (!entryPlaced) {
+                                ship[iX, iY + 1] = Tile.Entry;
+                                entryPlaced = true;
+                            }
+                            if (Random.Range(0, 20) == 0) {
+                                ship[iX, iY + 1] = Tile.Exit;
+                            } else if (Random.Range(0, 20) == 0) {
+                                ship[iX, iY + 1] = Tile.Enemy;
+                            }
                         }
                         if (Random.Range(0, 5) == 0) {
                             for (int iY2 = (iY - 1); iY2 >= 0; iY2--) {
@@ -60,7 +70,7 @@ public abstract class ShipGenerator : MonoBehaviour {
             for (int iX = 0; iX < sizeX; iX++, pos.x += platformSizeX) {
                 Tile tile = ship[iX, iY];
                 if (tile == Tile.Platform) {
-                    CreatePlatform(platformPrefab, pos, shipHolder.transform);
+                    CreatePlatform(platformPrefab, new Vector2(pos.x, pos.y + 1.32f), shipHolder.transform);
                 } else if (tile == Tile.Block) {
                     int blockSizeY = 1;
                     for (int i = (iY + 1); i < sizeY; i++) {
@@ -71,7 +81,11 @@ public abstract class ShipGenerator : MonoBehaviour {
                             break;
                         }
                     }
-                    CreateBlock(blockPrefab, new Vector2(pos.x, pos.y + (blockSizeY / 2f)), new Vector2(platformSizeX, blockSizeY), shipHolder.transform);
+                    CreateBlock(blockPrefab, new Vector2(pos.x, pos.y + (blockSizeY / 2f) + 0.5f), new Vector2(platformSizeX, blockSizeY), shipHolder.transform);
+                } else if (tile == Tile.Enemy) {
+                    CreateAlien(alienPrefab, pos, shipHolder.transform);
+                } else if (tile == Tile.Exit) {
+                    CreateExit(exitPrefab, new Vector2(pos.x, pos.y + 1f), shipHolder.transform);
                 } else if (tile == Tile.Entry) {
                     PlacePlayer(player, pos);
                 }
@@ -99,5 +113,13 @@ public abstract class ShipGenerator : MonoBehaviour {
     private static void PlacePlayer(Transform player, Vector2 pos) {
         pos.y += (player.GetComponent<CapsuleCollider2D>().size.y);
         player.position = pos;
+    }
+
+    private static void CreateExit(GameObject exit, Vector2 pos, Transform parent) {
+        Instantiate(exit, pos, Quaternion.identity, parent);
+    }
+
+    private static void CreateAlien(GameObject alien, Vector2 pos, Transform parent) {
+        Instantiate(alien, pos, Quaternion.identity, parent);
     }
 }
