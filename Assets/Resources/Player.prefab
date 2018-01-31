@@ -378,7 +378,7 @@ MonoBehaviour:
   platformDistanceCheck: 1.1
   platformLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
 --- !u!210 &210056246041798998
 SortingGroup:
   m_ObjectHideFlags: 1
