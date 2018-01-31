@@ -6,6 +6,7 @@ public class PlayerJet : MonoBehaviour {
     private int fuel = 100;
     [SerializeField]
     private int maxFuel = 100;
+    [Tooltip("The amount of time (in seconds) the Player has to stop using fuel for it to start refilling.")]
     public float fuelRefillDelay = 2f;
     public PlayerJump playerJumpScript;
     public float jetForce = 2f;
