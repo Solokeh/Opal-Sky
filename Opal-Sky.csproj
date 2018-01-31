@@ -320,6 +320,7 @@
     <Compile Include="Assets\PlayerJet.cs" />
     <Compile Include="Assets\PlayerJump.cs" />
     <Compile Include="Assets\PlayerMovement.cs" />
+    <Compile Include="Assets\PlayerPlatformDropThrough.cs" />
     <Compile Include="Assets\UI.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

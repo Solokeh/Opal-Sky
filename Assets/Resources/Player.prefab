@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114717424444513052}
   - component: {fileID: 114616386514169376}
   - component: {fileID: 114008635656224246}
+  - component: {fileID: 114730323715958748}
   - component: {fileID: 50025068870218334}
   - component: {fileID: 82836843387204778}
   - component: {fileID: 210056246041798998}
@@ -320,7 +321,7 @@ MonoBehaviour:
   groundDistanceCheck: 1.1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
 --- !u!114 &114554062460052766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -362,6 +363,22 @@ MonoBehaviour:
   fuelRefillDelay: 2
   playerJumpScript: {fileID: 114479881842058678}
   jetForce: 2
+--- !u!114 &114730323715958748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1053695053658020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5279b461f4008314a8117f055f0aef12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableCollisionTime: 1
+  platformDistanceCheck: 1.1
+  platformLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!210 &210056246041798998
 SortingGroup:
   m_ObjectHideFlags: 1

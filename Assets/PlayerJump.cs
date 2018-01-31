@@ -3,6 +3,7 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerJump : MonoBehaviour {
     public float jumpForce = 0.5f;
+    [Tooltip("The distance of the raycast which checks for ground under the Player.")]
     public float groundDistanceCheck = 1.1f;
     public LayerMask groundLayer;
 
