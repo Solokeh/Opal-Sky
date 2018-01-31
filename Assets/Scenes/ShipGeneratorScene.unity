@@ -175,6 +175,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &198589824
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4320972080280500, guid: 76b29ff530b4d5544973514a6b992489, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320972080280500, guid: 76b29ff530b4d5544973514a6b992489, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320972080280500, guid: 76b29ff530b4d5544973514a6b992489, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320972080280500, guid: 76b29ff530b4d5544973514a6b992489, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320972080280500, guid: 76b29ff530b4d5544973514a6b992489, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320972080280500, guid: 76b29ff530b4d5544973514a6b992489, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320972080280500, guid: 76b29ff530b4d5544973514a6b992489, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4320972080280500, guid: 76b29ff530b4d5544973514a6b992489, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114048502546917248, guid: 76b29ff530b4d5544973514a6b992489,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 913677711}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 76b29ff530b4d5544973514a6b992489, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &315770529
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,61 +358,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b00fff97573fa634f80b48d5d1db27a1, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &816867165
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 816867167}
-  - component: {fileID: 816867166}
-  m_Layer: 0
-  m_Name: Setter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &816867166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 816867165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 446b4b5e4653f8346a1c9132d1e3faf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 913677711}
-  alienPrefab: {fileID: 1124244346391810, guid: 4d5519c75f2880e428ae833a1424f31c,
-    type: 2}
-  holderPrefab: {fileID: 1485189383728776, guid: bb2b33cc34cd7204b84464f3264a1029,
-    type: 2}
-  platformPrefab: {fileID: 1697333573284860, guid: ed1bea0a6074e3c4e892335d3ed10296,
-    type: 2}
-  blockPrefab: {fileID: 1337800704630090, guid: 57af4cd5b865a4b4b86c1a27f499a081,
-    type: 2}
-  exitPrefab: {fileID: 1714967858502928, guid: 505c6dce2bddd5b4e91ed90c9eec307d, type: 2}
-  sizeX: 100
-  sizeY: 100
-  incrementX: 0.01
-  incrementY: 0.1
-  threshold: 0.5
---- !u!4 &816867167
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 816867165}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &913677711 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4269751151648310, guid: b00fff97573fa634f80b48d5d1db27a1,

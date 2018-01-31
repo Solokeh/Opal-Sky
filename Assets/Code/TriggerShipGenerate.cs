@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class TriggerShipGenerate : MonoBehaviour {
-    public GameObject exit, alienPrefab, holderPrefab, platformPrefab, blockPrefab;
+    public GameObject alienPrefab, holderPrefab, platformPrefab, blockPrefab;
     public int minSizeX = 10, maxSizeX = 100, minSizeY = 10, maxSizeY = 100;
     public float minIncrementX = 0.05f, maxIncrementX = 0.2f;
     public float minIncrementY = 0.05f, maxIncrementY = 0.2f;
@@ -23,7 +23,7 @@ public class TriggerShipGenerate : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision) {
         if ((collision.CompareTag("Player")) && (Input.GetButtonDown("Interact"))) {
-            ShipGenerator.Generate(collision.transform, alienPrefab, holderPrefab, platformPrefab, blockPrefab, exit, sizeX, sizeY, incrementX, incrementY, threshold);
+            ShipGenerator.Generate(collision.transform, alienPrefab, holderPrefab, platformPrefab, blockPrefab, sizeX, sizeY, incrementX, incrementY, threshold);
         }
     }
 }

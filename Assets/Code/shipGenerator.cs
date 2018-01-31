@@ -4,8 +4,13 @@ public abstract class ShipGenerator : MonoBehaviour {
     public enum Tile { Free, Platform, Block, Enemy, Entry, Exit };
 
     private static GameObject shipHolder;
+    public static GameObject exit;
 
-    public static void Generate(Transform player, GameObject alienPrefab, GameObject holderPrefab, GameObject platformPrefab, GameObject blockPrefab, GameObject exitPrefab, int sizeX, int sizeY, float incrementX = 0.1f, float incrementY = 0.1f, float threshold = 0.5f) {
+    public static void SetExitPrefab(GameObject exitPrefab) {
+        exit = exitPrefab;
+    }
+
+    public static void Generate(Transform player, GameObject alienPrefab, GameObject holderPrefab, GameObject platformPrefab, GameObject blockPrefab, int sizeX, int sizeY, float incrementX = 0.1f, float incrementY = 0.1f, float threshold = 0.5f) {
         if (shipHolder) {
             Destroy(shipHolder);
         }
@@ -85,7 +90,7 @@ public abstract class ShipGenerator : MonoBehaviour {
                 } else if (tile == Tile.Enemy) {
                     CreateAlien(alienPrefab, pos, shipHolder.transform);
                 } else if (tile == Tile.Exit) {
-                    CreateExit(exitPrefab, new Vector2(pos.x, pos.y + 1f), shipHolder.transform);
+                    CreateExit(exit, new Vector2(pos.x, pos.y + 1f), shipHolder.transform);
                 } else if (tile == Tile.Entry) {
                     PlacePlayer(player, pos);
                 }

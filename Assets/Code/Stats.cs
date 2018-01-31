@@ -58,7 +58,7 @@ public class Stats : MonoBehaviour {
         }
     }
 
-    protected void Kill() {
+    protected virtual void Kill() {
         Destroy(gameObject);
     }
 }

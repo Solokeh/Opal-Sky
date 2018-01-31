@@ -423,7 +423,7 @@ MonoBehaviour:
   fireRate: 0.2
   magnumWeaponFire: {fileID: 8300000, guid: bf6e4b76776efd64596e3df4b26b2a2b, type: 3}
   timeUntilFire: 0
-  bulletStartOffset: 1
+  bulletStartOffset: 1.5
 --- !u!114 &114124645565511156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -500,6 +500,7 @@ MonoBehaviour:
   maxHealth: 100
   speed: 10
   jumpForce: 5
+  jet: {fileID: 114717424444513052}
 --- !u!114 &114479881842058678
 MonoBehaviour:
   m_ObjectHideFlags: 1
