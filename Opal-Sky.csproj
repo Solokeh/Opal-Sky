@@ -307,7 +307,6 @@
     <Compile Include="Assets\Code\CameraControls.cs" />
     <Compile Include="Assets\Code\coinSpawner.cs" />
     <Compile Include="Assets\Code\DestroyAfter.cs" />
-    <Compile Include="Assets\Code\FuelManager.cs" />
     <Compile Include="Assets\Code\healthManager.cs" />
     <Compile Include="Assets\Code\platformScript.cs" />
     <Compile Include="Assets\Code\PlayerShoot.cs" />

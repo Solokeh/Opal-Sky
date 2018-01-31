@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class sideScrollerController : MonoBehaviour {
 
-    public FuelManager fuelManager;
     public Vector2 stepVec;
     private Rigidbody2D rb2D;
     public Transform gun;
@@ -45,7 +44,6 @@ public class sideScrollerController : MonoBehaviour {
     {
         audio = GetComponent<AudioSource>();
         rb2D = GetComponent<Rigidbody2D>();
-        fuelManager.controller = this;
         positionToMoveTo = transform.position;
 	}
 	
@@ -53,7 +51,6 @@ public class sideScrollerController : MonoBehaviour {
     {
         CheckGround();
         Movement();
-        fuelManager.Jet();
         LimitVelocity();
         ControlCam();
         ControlWeaponRotationAndPosition();
@@ -86,11 +83,7 @@ public class sideScrollerController : MonoBehaviour {
             downForce = 1f;
         }
 
-        if (fuelManager.isFlying)
-        {
-            isJumping = true;
-        }
-        else if (isJumping)
+        if (isJumping)
         {
             if (timeOffGroundVal < maxTimeOffGround)
             {
@@ -114,13 +107,10 @@ public class sideScrollerController : MonoBehaviour {
 
         if (distFromGround >= 0.01f)
         {
-            if (!fuelManager.isFlying)
+            timeOffGroundVal += timeOffGroundAdd;
+            if (!isJumping && downForce >= -maxDownForce)
             {
-                timeOffGroundVal += timeOffGroundAdd;
-                if (!isJumping && downForce >= -maxDownForce)
-                {
-                    downForce -= downForce + timeOffGroundVal + downForceCurve;
-                }
+                downForce -= downForce + timeOffGroundVal + downForceCurve;
             }
             canJump = false;
         }
