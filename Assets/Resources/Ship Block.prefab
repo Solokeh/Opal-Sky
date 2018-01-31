@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4695619009987754}
   - component: {fileID: 212252505608027906}
   - component: {fileID: 61915750856514592}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ship Block
   m_TagString: Ground
   m_Icon: {fileID: 0}

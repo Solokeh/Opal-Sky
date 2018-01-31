@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ProjectileWeapon : MonoBehaviour
 {
@@ -9,7 +7,7 @@ public class ProjectileWeapon : MonoBehaviour
     public float bulletVel = 50f;
     public bool canFire = true;
     public float fireRate = 0.2f;
-    private AudioSource audio;
+    private new AudioSource audio;
     public AudioClip magnumWeaponFire;
     public float timeUntilFire;
 
@@ -33,7 +31,7 @@ public class ProjectileWeapon : MonoBehaviour
 
         Rigidbody2D clone = Instantiate(bullet, transform.position + transform.right * 2f, transform.rotation) as Rigidbody2D;
 
-        clone.AddForce(transform.right * bulletVel);
+        clone.velocity = (transform.right * bulletVel);
         Invoke("ResetCanFire", fireRate);
     }
 
