@@ -10,7 +10,7 @@ public abstract class ShipGenerator : MonoBehaviour {
         exit = exitPrefab;
     }
 
-    public static void Generate(Transform player, GameObject alienPrefab, GameObject holderPrefab, GameObject platformPrefab, GameObject blockPrefab, GameObject pointPrefab, int sizeX, int sizeY, float incrementX = 0.1f, float incrementY = 0.1f, float threshold = 0.5f, int enemySpawnRate = 20, int exitSpawnRate = 20, int pointSpawnRate = 50) {
+    public static void Generate(Transform player, GameObject shipBackground, GameObject alienPrefab, GameObject holderPrefab, GameObject platformPrefab, GameObject blockPrefab, GameObject pointPrefab, int sizeX, int sizeY, float incrementX = 0.1f, float incrementY = 0.1f, float threshold = 0.5f, int enemySpawnRate = 20, int exitSpawnRate = 20, int pointSpawnRate = 50) {
         if (shipHolder) {
             Destroy(shipHolder);
         }
@@ -82,6 +82,8 @@ public abstract class ShipGenerator : MonoBehaviour {
         BoxCollider2D col = platformPrefab.GetComponent<BoxCollider2D>();
         float platformSizeX = col.size.x;
         //float platformSizeY = col.size.y;
+        // Start Creating Ship In World!
+        CreateBackground(shipBackground, new Vector2(((sizeX * platformSizeX) / 2f) - (platformSizeX / 2f), sizeY / 2f), shipHolder.transform, sizeX * platformSizeX, sizeY);
         Vector2 pos = Vector2.zero;
         for (int iY = 0; iY < sizeY; iY++, pos.y++, pos.x = 0f) {
             for (int iX = 0; iX < sizeX; iX++, pos.x += platformSizeX) {
@@ -100,9 +102,9 @@ public abstract class ShipGenerator : MonoBehaviour {
                     }
                     CreateBlock(blockPrefab, new Vector2(pos.x, pos.y + (blockSizeY / 2f) + 0.5f), new Vector2(platformSizeX, blockSizeY), shipHolder.transform);
                 } else if (tile == Tile.Enemy) {
-                    CreateAlien(alienPrefab, pos, shipHolder.transform);
+                    CreateAlien(alienPrefab, new Vector2(pos.x, pos.y + 1f), shipHolder.transform);
                 } else if (tile == Tile.Exit) {
-                    CreateExit(exit, new Vector2(pos.x, pos.y + 1f), shipHolder.transform);
+                    CreateExit(exit, new Vector2(pos.x, pos.y + 1.7f), shipHolder.transform);
                 } else if (tile == Tile.Point) {
                     CreatePoint(pointPrefab, new Vector2(pos.x, pos.y + 1.5f), shipHolder.transform);
                 } else if (tile == Tile.Entry) {
@@ -144,6 +146,11 @@ public abstract class ShipGenerator : MonoBehaviour {
 
     private static void CreatePoint(GameObject point, Vector2 pos, Transform parent) {
         Instantiate(point, pos, Quaternion.identity, parent);
+    }
+
+    private static void CreateBackground(GameObject background, Vector2 pos, Transform parent, float sizeX, float sizeY) {
+        GameObject bg = Instantiate(background, pos, Quaternion.identity, parent);
+        bg.GetComponent<SpriteRenderer>().size = new Vector2(sizeX, sizeY);
     }
 
     public static GameObject Ship {

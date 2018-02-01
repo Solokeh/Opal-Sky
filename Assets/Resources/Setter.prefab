@@ -52,6 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  backgroundPrefab: {fileID: 1426489660486658, guid: be0223014cee92345b44666c5b2d283a,
+    type: 2}
   alienPrefab: {fileID: 1124244346391810, guid: 4d5519c75f2880e428ae833a1424f31c,
     type: 2}
   holderPrefab: {fileID: 1485189383728776, guid: bb2b33cc34cd7204b84464f3264a1029,

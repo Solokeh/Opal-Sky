@@ -325,6 +325,7 @@
     <Compile Include="Assets\Code\spawnAsteroids.cs" />
     <Compile Include="Assets\Code\Stats.cs" />
     <Compile Include="Assets\Code\TriggerShipGenerate.cs" />
+    <Compile Include="Assets\GameLoader.cs" />
     <Compile Include="Assets\PlayerAim.cs" />
     <Compile Include="Assets\PlayerJet.cs" />
     <Compile Include="Assets\PlayerJump.cs" />

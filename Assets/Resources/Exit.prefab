@@ -56,16 +56,16 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    border: {x: 0.9266667, y: 0.41333336, z: 0.90000004, w: 0.56}
+    pivot: {x: 0.5035, y: 0.48}
+    oldSize: {x: 3.4133334, y: 3.4133334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.6, y: 2.45}
   m_EdgeRadius: 0
 --- !u!114 &114845809669095222
 MonoBehaviour:
@@ -78,6 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46143ccd400283447959045779c954de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundPrefab: {fileID: 1426489660486658, guid: be0223014cee92345b44666c5b2d283a,
+    type: 2}
   alienPrefab: {fileID: 1124244346391810, guid: 4d5519c75f2880e428ae833a1424f31c,
     type: 2}
   holderPrefab: {fileID: 1485189383728776, guid: bb2b33cc34cd7204b84464f3264a1029,
@@ -98,7 +100,7 @@ MonoBehaviour:
   maxIncrementY: 0.2
   minThreshold: 0.4
   maxThreshold: 0.6
-  minEnemySpawnRate: 10
+  minEnemySpawnRate: 5
   maxEnemySpawnRate: 20
   minExitSpawnRate: 20
   maxExitSpawnRate: 50
@@ -135,8 +137,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c66966ce68a7f314987c96025a79e230, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 32c5343f78215a34c9e67695c72c6767, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
