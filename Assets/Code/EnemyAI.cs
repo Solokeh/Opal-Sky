@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public ProjectileWeapon gun;
+    /*public ProjectileWeapon gun;
     public float gunSmooth = 0.1f;
     public GameObject target;
     public bool canFire = false;
@@ -73,5 +73,5 @@ public class EnemyAI : MonoBehaviour
         {
             target = collision.gameObject;
         }
-    }
+    }*/
 }

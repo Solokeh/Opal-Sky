@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class sideScrollerController : MonoBehaviour
 {
-
+    /*
     public Vector2 stepVec;
     private Rigidbody2D rb2D;
     public Transform gun;
@@ -188,6 +188,6 @@ public class sideScrollerController : MonoBehaviour
             Destroy(collision.gameObject);
             audio.Play();
         }
-    }
+    }*/
 
 }
