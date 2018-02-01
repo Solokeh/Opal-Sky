@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public abstract class ShipGenerator : MonoBehaviour {
-    public enum Tile { Free, Platform, Block, Enemy, Entry, Exit };
+    public enum Tile { Free, Platform, Block, Enemy, Entry, Exit, Point };
 
     private static GameObject shipHolder;
     public static GameObject exit;
@@ -10,7 +10,7 @@ public abstract class ShipGenerator : MonoBehaviour {
         exit = exitPrefab;
     }
 
-    public static void Generate(Transform player, GameObject alienPrefab, GameObject holderPrefab, GameObject platformPrefab, GameObject blockPrefab, int sizeX, int sizeY, float incrementX = 0.1f, float incrementY = 0.1f, float threshold = 0.5f) {
+    public static void Generate(Transform player, GameObject alienPrefab, GameObject holderPrefab, GameObject platformPrefab, GameObject blockPrefab, GameObject pointPrefab, int sizeX, int sizeY, float incrementX = 0.1f, float incrementY = 0.1f, float threshold = 0.5f, int enemySpawnRate = 20, int exitSpawnRate = 20, int pointSpawnRate = 50) {
         if (shipHolder) {
             Destroy(shipHolder);
         }
@@ -28,7 +28,7 @@ public abstract class ShipGenerator : MonoBehaviour {
                 }
             }
         }
-        bool entryPlaced = false;
+        bool entryPlaced = false, exitPlaced = false;
         for (int iX = 0; iX < sizeX; iX++) {
             for (int iY = (sizeY - 6); iY >= 0; iY--) {
                 if (ship[iX, iY] == Tile.Platform) {
@@ -39,11 +39,13 @@ public abstract class ShipGenerator : MonoBehaviour {
                             if (!entryPlaced) {
                                 ship[iX, iY + 1] = Tile.Entry;
                                 entryPlaced = true;
-                            }
-                            if (Random.Range(0, 20) == 0) {
+                            } else if (Random.Range(0, exitSpawnRate) == 0) {
                                 ship[iX, iY + 1] = Tile.Exit;
-                            } else if (Random.Range(0, 20) == 0) {
+                                exitPlaced = true;
+                            } else if (Random.Range(0, enemySpawnRate) == 0) {
                                 ship[iX, iY + 1] = Tile.Enemy;
+                            } else if (Random.Range(0, pointSpawnRate) == 0) {
+                                ship[iX, iY + 1] = Tile.Point;
                             }
                         }
                         if (Random.Range(0, 5) == 0) {
@@ -63,6 +65,16 @@ public abstract class ShipGenerator : MonoBehaviour {
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+        // Makes sure to place an exit.
+        if (!exitPlaced) {
+            for (int iX = (sizeX - 1); (iX >= 0) && (!exitPlaced); iX--) {
+                for (int iY = (sizeY - 6); (iY >= 0) && (!exitPlaced); iY--) {
+                    if (((ship[iX, iY] == Tile.Platform) || (ship[iX, iY] == Tile.Block)) && ((iY + 1) < sizeY)) {
+                        ship[iX, iY + 1] = Tile.Exit;
                     }
                 }
             }
@@ -91,6 +103,8 @@ public abstract class ShipGenerator : MonoBehaviour {
                     CreateAlien(alienPrefab, pos, shipHolder.transform);
                 } else if (tile == Tile.Exit) {
                     CreateExit(exit, new Vector2(pos.x, pos.y + 1f), shipHolder.transform);
+                } else if (tile == Tile.Point) {
+                    CreatePoint(pointPrefab, new Vector2(pos.x, pos.y + 1.5f), shipHolder.transform);
                 } else if (tile == Tile.Entry) {
                     PlacePlayer(player, pos);
                 }
@@ -126,6 +140,10 @@ public abstract class ShipGenerator : MonoBehaviour {
 
     private static void CreateAlien(GameObject alien, Vector2 pos, Transform parent) {
         Instantiate(alien, pos, Quaternion.identity, parent);
+    }
+
+    private static void CreatePoint(GameObject point, Vector2 pos, Transform parent) {
+        Instantiate(point, pos, Quaternion.identity, parent);
     }
 
     public static GameObject Ship {

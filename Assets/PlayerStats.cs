@@ -1,6 +1,10 @@
 ﻿public class PlayerStats : Stats {
     public PlayerJet jet;
 
+    private void Start() {
+        Score.Points = 0;
+    }
+
     public override void Damage(int damage) {
         base.Damage(damage);
         UI.UpdateHealthBar(health, maxHealth);
@@ -15,6 +19,7 @@
         health = maxHealth;
         UI.UpdateHealthBar(health, maxHealth);
         jet.Fuel = jet.MaxFuel;
+        Score.Points = 0;
         ShipSetter.GenerateShip();
     }
 }

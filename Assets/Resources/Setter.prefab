@@ -61,6 +61,8 @@ MonoBehaviour:
   blockPrefab: {fileID: 1337800704630090, guid: 57af4cd5b865a4b4b86c1a27f499a081,
     type: 2}
   exitPrefab: {fileID: 1714967858502928, guid: 505c6dce2bddd5b4e91ed90c9eec307d, type: 2}
+  pointPrefab: {fileID: 1337415147314568, guid: 022c0393636fc1649b141e4f284bf79c,
+    type: 2}
   sizeX: 100
   sizeY: 100
   incrementX: 0.01

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 // Only ONE of this object should exist!
 public class UI : MonoBehaviour {
     public Image healthBar, fuelBar;
+    public Text score;
     private static UI ui;
 
     private void Awake() {
@@ -26,5 +27,13 @@ public class UI : MonoBehaviour {
 
     public static void UpdateFuelBar(int fuel, int maxFuel) {
         ui.FuelBar(fuel, maxFuel);
+    }
+
+    public void Score(int score) {
+        this.score.text = "Score: " + score;
+    }
+
+    public static void UpdateScore(int score) {
+        ui.Score(score);
     }
 }

@@ -78,7 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46143ccd400283447959045779c954de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exit: {fileID: 1714967858502928}
   alienPrefab: {fileID: 1124244346391810, guid: 4d5519c75f2880e428ae833a1424f31c,
     type: 2}
   holderPrefab: {fileID: 1485189383728776, guid: bb2b33cc34cd7204b84464f3264a1029,
@@ -86,6 +85,8 @@ MonoBehaviour:
   platformPrefab: {fileID: 1697333573284860, guid: ed1bea0a6074e3c4e892335d3ed10296,
     type: 2}
   blockPrefab: {fileID: 1337800704630090, guid: 57af4cd5b865a4b4b86c1a27f499a081,
+    type: 2}
+  pointPrefab: {fileID: 1337415147314568, guid: 022c0393636fc1649b141e4f284bf79c,
     type: 2}
   minSizeX: 10
   maxSizeX: 100
@@ -97,6 +98,10 @@ MonoBehaviour:
   maxIncrementY: 0.2
   minThreshold: 0.4
   maxThreshold: 0.6
+  minEnemySpawnRate: 10
+  maxEnemySpawnRate: 20
+  minExitSpawnRate: 20
+  maxExitSpawnRate: 50
 --- !u!212 &212186547245243632
 SpriteRenderer:
   m_ObjectHideFlags: 1

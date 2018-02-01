@@ -314,7 +314,9 @@
     <Compile Include="Assets\Code\HealthUI.cs" />
     <Compile Include="Assets\Code\platformScript.cs" />
     <Compile Include="Assets\Code\PlayerShoot.cs" />
+    <Compile Include="Assets\Code\Point.cs" />
     <Compile Include="Assets\Code\ProjectileWeapon.cs" />
+    <Compile Include="Assets\Code\Score.cs" />
     <Compile Include="Assets\Code\shipController.cs" />
     <Compile Include="Assets\Code\ShipGenerator.cs" />
     <Compile Include="Assets\Code\ShipSetter.cs" />
