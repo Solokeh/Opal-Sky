@@ -1,34 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BulletScript : MonoBehaviour {
 
-    private GameObject author;
     public Transform debris;
-    public float damage = 25f;
-
-	void Start ()
-    {
-		
-	}
-	
-	void Update ()
-    {
-		
-	}
+    public int damage = 25;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-
-        if(collision.gameObject != author)
+        Instantiate(debris, transform.position, transform.rotation, ShipGenerator.Ship.transform);
+        Stats stats = collision.gameObject.GetComponent<Stats>();
+        if (stats)
         {
-            Instantiate(debris, transform.position, transform.rotation);
-            if (collision.gameObject.GetComponent<healthManager>())
-            {
-                collision.gameObject.GetComponent<healthManager>().CalcDamage(damage);
-            }
+            stats.Damage(damage);
+            Destroy(gameObject);
         }
     }
 }

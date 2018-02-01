@@ -26,7 +26,7 @@ public class shipController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (health.isDead)
+        if (health.IsDead)
         {
 
         }

@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class healthManager : MonoBehaviour {
 
-    public float healthValue = 100f;
-    public bool isDead = false;
+    [SerializeField]
+    private float healthValue = 100f;
+    private bool isDead = false;
 
-	void Start ()
+   public void CalcDamage(float damage)
     {
-		
-	}
-
-    private void Update()
-    {
-        if(healthValue <= 0)
+        healthValue -= damage;
+        if (healthValue <= 0)
         {
             healthValue = 0;
             isDead = true;
@@ -25,8 +22,11 @@ public class healthManager : MonoBehaviour {
         }
     }
 
-   public void CalcDamage(float damage)
+    public bool IsDead
     {
-        healthValue -= damage;
+        get
+        {
+            return (isDead);
+        }
     }
 }

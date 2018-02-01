@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 58110425478489496}
   - component: {fileID: 58911439862165586}
   - component: {fileID: 50257270033305250}
-  - component: {fileID: 114430454524167214}
   m_Layer: 0
   m_Name: NEUMANN_COIN
   m_TagString: Coin
@@ -94,18 +93,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.8
---- !u!114 &114430454524167214
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1337415147314568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ede15b48efd68a4d9fd745a69dc3505, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeTillDestroy: 5
 --- !u!212 &212527400119984686
 SpriteRenderer:
   m_ObjectHideFlags: 1

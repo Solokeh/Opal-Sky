@@ -21,7 +21,11 @@ GameObject:
   - component: {fileID: 4580887636241784}
   - component: {fileID: 212081922167017376}
   - component: {fileID: 114727449717497552}
+<<<<<<< HEAD
   - component: {fileID: 82307719001736234}
+=======
+  - component: {fileID: 82321709050375060}
+>>>>>>> 4caff4cd19bc701d680606970e44696d5b2bb9b1
   m_Layer: 0
   m_Name: GUN
   m_TagString: Untagged
@@ -36,13 +40,21 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1979431353426266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: -0.13042235, y: 0.86590296, z: 0}
+=======
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+>>>>>>> 4caff4cd19bc701d680606970e44696d5b2bb9b1
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!82 &82307719001736234
+=======
+--- !u!82 &82321709050375060
+>>>>>>> 4caff4cd19bc701d680606970e44696d5b2bb9b1
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -52,7 +64,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+<<<<<<< HEAD
   m_PlayOnAwake: 0
+=======
+  m_PlayOnAwake: 1
+>>>>>>> 4caff4cd19bc701d680606970e44696d5b2bb9b1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -134,11 +150,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 50541278672778566, guid: b6396f9e10ead5e41b02cfc1d68ec4de, type: 2}
+<<<<<<< HEAD
   bulletVel: 5000
   canFire: 1
   fireRate: 0.2
   magnumWeaponFire: {fileID: 8300000, guid: bf6e4b76776efd64596e3df4b26b2a2b, type: 3}
   timeUntilFire: 0.5
+=======
+  bulletVel: 25
+  canFire: 1
+  fireRate: 0.2
+  magnumWeaponFire: {fileID: 8300000, guid: bf6e4b76776efd64596e3df4b26b2a2b, type: 3}
+  timeUntilFire: 0
+  bulletStartOffset: 2
+>>>>>>> 4caff4cd19bc701d680606970e44696d5b2bb9b1
 --- !u!212 &212081922167017376
 SpriteRenderer:
   m_ObjectHideFlags: 1
