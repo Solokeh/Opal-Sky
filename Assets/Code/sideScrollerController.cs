@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sideScrollerController : MonoBehaviour {
+public class sideScrollerController : MonoBehaviour
+{
 
     public Vector2 stepVec;
     private Rigidbody2D rb2D;
@@ -25,6 +26,7 @@ public class sideScrollerController : MonoBehaviour {
     public float camSmooth = 0.3f;
     public float timeOffGroundAdd = 0.1f;
     public float gunSmooth = 0.4f;
+    public float initJumpVel = 10;
 
     #endregion
 
@@ -39,13 +41,13 @@ public class sideScrollerController : MonoBehaviour {
     public AudioSource audio;
     public ProjectileWeapon gunObject;
 
-    void Start ()
+    void Start()
     {
         audio = GetComponent<AudioSource>();
         rb2D = GetComponent<Rigidbody2D>();
-	}
-	
-	void FixedUpdate ()
+    }
+
+    void FixedUpdate()
     {
         Movement();
         CheckGround();
@@ -53,11 +55,6 @@ public class sideScrollerController : MonoBehaviour {
         ControlCam();
         ControlWeaponRotationAndPosition();
         ControlWeapon();
-	}
-    
-    void Rotation()
-    {
-
     }
 
     void ControlCam()
@@ -75,10 +72,10 @@ public class sideScrollerController : MonoBehaviour {
 
         rb2D.MovePosition(Vector3.Lerp(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x, transform.position.y) + new Vector2(stepVec.x * moveSpeed, downForce), moveSmooth));
 
-        if(Input.GetButton("Jump") && canJump && !isJumping)
+        if (Input.GetButton("Jump") && canJump && !isJumping)
         {
             isJumping = true;
-            downForce = 5f;
+            downForce = initJumpVel;
         }
 
         if (isJumping)
@@ -98,12 +95,12 @@ public class sideScrollerController : MonoBehaviour {
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, -1.1f, 0), -Vector2.up);
 
-        if((hit) && (hit.transform.tag == "Ground"))
+        if ((hit) && (hit.transform.tag == "Ground"))
         {
             distFromGround = hit.distance;
         }
 
-        if(distFromGround >= 0.01f)
+        if (distFromGround >= 0.01f || !hit.collider)
         {
             timeOffGroundVal += timeOffGroundAdd;
             if (!isJumping && downForce >= -maxDownForce)
@@ -116,17 +113,16 @@ public class sideScrollerController : MonoBehaviour {
         {
             canJump = true;
             timeOffGroundVal = 0;
-            if(!isJumping)
+            if (!isJumping)
             {
                 downForce = 0;
             }
-
         }
     }
 
     void LimitVelocity()
     {
-        if(rb2D.velocity.magnitude >= maxSpeed)
+        if (rb2D.velocity.magnitude >= maxSpeed)
         {
             rb2D.velocity = rb2D.velocity.normalized * maxSpeed;
         }
@@ -154,7 +150,7 @@ public class sideScrollerController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Coin")
+        if (collision.tag == "Coin")
         {
             Destroy(collision.gameObject);
             audio.Play();
