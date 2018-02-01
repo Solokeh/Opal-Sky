@@ -30,7 +30,7 @@ public class ProjectileWeapon : MonoBehaviour
 
     public void FireProjectile()
     {
-        Rigidbody2D clone = Instantiate(bullet, transform.position + (transform.right * bulletStartOffset), transform.rotation) as Rigidbody2D;
+        Rigidbody2D clone = Instantiate(bullet, transform.position + (transform.right * bulletStartOffset), transform.rotation, ShipGenerator.Ship.transform) as Rigidbody2D;
         Physics2D.IgnoreCollision(player, clone.GetComponent<Collider2D>());
         clone.velocity = (transform.right * bulletVel);
         Invoke("ResetCanFire", fireRate);

@@ -127,4 +127,10 @@ public abstract class ShipGenerator : MonoBehaviour {
     private static void CreateAlien(GameObject alien, Vector2 pos, Transform parent) {
         Instantiate(alien, pos, Quaternion.identity, parent);
     }
+
+    public static GameObject Ship {
+        get {
+            return (shipHolder);
+        }
+    }
 }

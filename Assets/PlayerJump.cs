@@ -31,14 +31,6 @@ public class PlayerJump : GroundCheck {
         }
     }
 
-    private bool CheckForGround() {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundDistanceCheck, groundLayer);
-        if (hit) {
-            return (true);
-        }
-        return (false);
-    }
-
     public bool InAir {
         get {
             return (inAir);
