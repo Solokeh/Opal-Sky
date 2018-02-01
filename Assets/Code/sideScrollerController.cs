@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sideScrollerController : MonoBehaviour {
+public class sideScrollerController : MonoBehaviour
+{
 
     public Vector2 stepVec;
     private Rigidbody2D rb2D;
@@ -26,6 +27,7 @@ public class sideScrollerController : MonoBehaviour {
     public float camSmooth = 0.3f;
     public float timeOffGroundAdd = 0.1f;
     public float gunSmooth = 0.4f;
+    public float initJumpVel = 10;
 
     #endregion
 
@@ -40,14 +42,20 @@ public class sideScrollerController : MonoBehaviour {
     public new AudioSource audio;
     public ProjectileWeapon gunObject;
 
-    void Start ()
+    void Start()
     {
         audio = GetComponent<AudioSource>();
         rb2D = GetComponent<Rigidbody2D>();
+<<<<<<< HEAD
+    }
+
+    void FixedUpdate()
+=======
         positionToMoveTo = transform.position;
 	}
 	
 	void FixedUpdate ()
+>>>>>>> 4caff4cd19bc701d680606970e44696d5b2bb9b1
     {
         CheckGround();
         Movement();
@@ -55,12 +63,15 @@ public class sideScrollerController : MonoBehaviour {
         ControlCam();
         ControlWeaponRotationAndPosition();
         ControlWeapon();
+<<<<<<< HEAD
+=======
         rb2D.MovePosition(positionToMoveTo);
     }
     
     void Rotation()
     {
 
+>>>>>>> 4caff4cd19bc701d680606970e44696d5b2bb9b1
     }
 
     void ControlCam()
@@ -77,10 +88,14 @@ public class sideScrollerController : MonoBehaviour {
         //float angle = (Mathf.Atan2(stepVec.y, stepVec.x) * 180 / Mathf.PI) + 90;
         positionToMoveTo = Vector2.Lerp(new Vector2(transform.position.x, transform.position.y), new Vector2(transform.position.x, transform.position.y) + new Vector2(stepVec.x * moveSpeed, downForce), moveSmooth);
 
-        if(Input.GetButton("Jump") && canJump && !isJumping)
+        if (Input.GetButton("Jump") && canJump && !isJumping)
         {
             isJumping = true;
+<<<<<<< HEAD
+            downForce = initJumpVel;
+=======
             downForce = 1f;
+>>>>>>> 4caff4cd19bc701d680606970e44696d5b2bb9b1
         }
 
         if (isJumping)
@@ -100,12 +115,20 @@ public class sideScrollerController : MonoBehaviour {
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, -1.1f, 0), -Vector2.up);
 
+<<<<<<< HEAD
+        if ((hit) && (hit.transform.tag == "Ground"))
+=======
         if ((hit) && (hit.transform.CompareTag("Ground")))
+>>>>>>> 4caff4cd19bc701d680606970e44696d5b2bb9b1
         {
             distFromGround = hit.distance;
         }
 
+<<<<<<< HEAD
+        if (distFromGround >= 0.01f || !hit.collider)
+=======
         if (distFromGround >= 0.01f)
+>>>>>>> 4caff4cd19bc701d680606970e44696d5b2bb9b1
         {
             timeOffGroundVal += timeOffGroundAdd;
             if (!isJumping && downForce >= -maxDownForce)
@@ -123,7 +146,6 @@ public class sideScrollerController : MonoBehaviour {
             {
                 downForce = 0;
             }
-
         }
     }
 
@@ -157,7 +179,11 @@ public class sideScrollerController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+<<<<<<< HEAD
+        if (collision.tag == "Coin")
+=======
         if(collision.CompareTag("Coin"))
+>>>>>>> 4caff4cd19bc701d680606970e44696d5b2bb9b1
         {
             Destroy(collision.gameObject);
             audio.Play();

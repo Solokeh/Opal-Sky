@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4844189372115316}
   - component: {fileID: 198006993920913402}
+  - component: {fileID: 114610942275228926}
   - component: {fileID: 199196298391002646}
   - component: {fileID: 114998098110662344}
   m_Layer: 0
@@ -42,7 +43,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+--- !u!114 &114610942275228926
+=======
 --- !u!114 &114998098110662344
+>>>>>>> 4caff4cd19bc701d680606970e44696d5b2bb9b1
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -50,10 +55,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1235882844917162}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
+  m_Script: {fileID: 11500000, guid: 7ede15b48efd68a4d9fd745a69dc3505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeTillDestroy: 7.5
+=======
   m_Script: {fileID: 11500000, guid: 34a1f6bba371f014998d708ebea08caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   destroyDelay: 3
+>>>>>>> 4caff4cd19bc701d680606970e44696d5b2bb9b1
 --- !u!198 &198006993920913402
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1008,7 +1020,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -1033,8 +1045,8 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 65535
-        atime2: 0
+        atime1: 60716
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
@@ -1042,7 +1054,7 @@ ParticleSystem:
         atime7: 0
         m_Mode: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 2
+        m_NumAlphaKeys: 3
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
